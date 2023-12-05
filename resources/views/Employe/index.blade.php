@@ -19,7 +19,7 @@
 <tr>
     <td>{{ $value -> name }}</td>
     <td>{{ $value -> salary }}</td>
-
+@can('isAdmin')
 <td>
     <form action="{{ route('employees.destroy', $value -> id) }}" method="post">
         @method('DELETE')
@@ -27,7 +27,8 @@
         <input type="submit" class="btn btn-danger" value="Supprimer">
     </form>
 </td>
-<td><button class="btn btn-warning">Modifier</button></td>
+@endcan
+<td> <a  class="btn btn-warning" href="{{ route('employees.edit', $value -> id) }}">Modifier</td>
 
    
 </tr>
